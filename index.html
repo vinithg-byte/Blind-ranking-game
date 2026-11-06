@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#09070f">
+  <meta name="description" content="BLIND RANK Tamil Cinema Edition — rank Tamil cinema one reveal at a time.">
+  <title>BLIND RANK — Tamil Cinema Edition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" data-home><span class="brand-mark">BR</span><span>BLIND<span class="accent">RANK</span><small>TAMIL CINEMA EDITION</small></span></a>
+    <nav class="desktop-nav"><a href="#" data-home>Home</a><a href="#categories" data-categories>Play</a><a href="#" data-leaderboard>Leaderboard</a></nav>
+    <div class="top-actions"><button class="sound-toggle" id="soundToggle" title="Toggle sound">♪ <span>Sound off</span></button><button class="user-pill" id="userButton"> <span class="avatar">G</span><span id="userLabel">Guest Player</span></button><button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button></div>
+  </header>
+  <main id="app">
+    <section class="hero view active" id="homeView">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live-dot"></span> THE TAMIL CINEMA RANKING GAME</div>
+        <h1>YOUR TASTE.<br><span>YOUR RANK.</span></h1>
+        <p class="hero-sub">Ten reveals. Ten slots. No second chances.<br>How well do you know Tamil cinema?</p>
+        <div class="hero-actions"><button class="btn btn-primary btn-large" id="startPlaying">▶ &nbsp; ENTER THE GAME</button><button class="btn btn-ghost btn-large" id="howToPlay">How to play <span>↗</span></button></div>
+        <div class="hero-note"><span>🎬</span> Made for Tamil cinema fans <i></i> <span>தமிழ் சினிமா மட்டும்</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="reel"><div class="reel-center">BR</div><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="floating-ticket ticket-one"><small>THE NEXT REVEAL</small><b>???</b><span>NO SPOILERS</span></div>
+        <div class="floating-ticket ticket-two"><small>RANK IT</small><b>01 — 10</b><span>LOCK YOUR PICK</span></div>
+        <div class="art-caption">CINEMA IS PERSONAL.</div>
+      </div>
+      <div class="hero-bottom"><div><b>15</b><span>CINEMA CATEGORIES</span></div><div><b>10</b><span>ITEMS PER ROUND</span></div><div><b>∞</b><span>WAYS TO RANK</span></div><div class="scroll-hint">SCROLL TO EXPLORE ↓</div></div>
+    </section>
+
+    <section class="view section-wrap" id="categoriesView">
+      <div class="section-head"><div><div class="eyebrow">PICK YOUR PLAYGROUND</div><h2>Choose a <span class="accent">category.</span></h2><p>Every round is a fresh Tamil cinema challenge.</p></div><div class="section-count"><b>15</b><span>CATEGORIES</span></div></div>
+      <div class="category-grid" id="categoryGrid"></div>
+    </section>
+
+
+    <section class="view section-wrap" id="peopleView">
+      <button class="back-link" data-back-categories>← All categories</button>
+      <div class="section-head"><div><div class="eyebrow" id="peopleEyebrow">TAMIL CINEMA PEOPLE</div><h2 id="peopleTitle">Choose a <span class="accent">person.</span></h2><p id="peopleDescription">Select one person to rank their filmography separately.</p></div></div>
+      <div class="people-tools"><input id="peopleSearch" type="search" placeholder="Search actor, actress or director..."><span id="peopleCount"></span></div>
+      <div class="people-grid" id="peopleGrid"></div>
+    </section>
+
+    <section class="view section-wrap" id="personProfileView">
+      <button class="back-link" id="backToPeople">← Back to people</button>
+      <div class="person-hero"><div class="person-avatar" id="personAvatar">★</div><div><div class="eyebrow" id="personRole">TAMIL CINEMA ARTIST</div><h2 id="personName">Person Name</h2><p id="personBio">Individual filmography ranking</p></div></div>
+      <div class="section-head"><div><div class="eyebrow">INDIVIDUAL FILMOGRAPHY</div><h2>Choose a <span class="accent">batch.</span></h2><p>Each batch contains up to 10 different films. Completed films won't repeat in later batches.</p></div></div>
+      <div class="batch-grid" id="batchGrid"></div>
+      <div class="filmography-note" id="filmographyNote"></div>
+    </section>
+
+    <section class="view section-wrap" id="challengesView">
+      <button class="back-link" data-back-categories>← All categories</button>
+      <div class="section-head"><div><div class="eyebrow" id="challengeEyebrow">CHOOSE YOUR CHALLENGE</div><h2 id="challengeTitle">Actors</h2><p id="challengeDescription">Choose a challenge to begin.</p></div></div>
+      <div class="challenge-grid" id="challengeGrid"></div>
+    </section>
+
+    <section class="view game-view" id="gameView">
+      <div class="game-top"><button class="back-link" id="quitGame">← Exit round</button><div class="round-label" id="roundLabel">ACTORS / TOP 10</div><button class="icon-button" id="gameSound" title="Sound">♪</button></div>
+      <div class="game-progress"><div><span id="progressText">REVEAL 01 / 10</span><span id="progressPercent">10%</span></div><div class="progress-track"><span id="progressBar"></span></div></div>
+      <div class="game-layout">
+        <div class="reveal-panel"><div class="reveal-top"><span class="eyebrow">YOUR NEXT REVEAL</span><span class="mystery-tag">● BLIND PICK</span></div><div class="item-art" id="itemArt"><span class="art-stamp">TAMIL<br>CINEMA</span><strong id="itemInitial">?</strong><div class="art-lines"></div></div><div class="item-info"><div class="item-meta" id="itemMeta">TAMIL CINEMA • FEATURED</div><h2 id="itemName">Ready?</h2><p id="itemDescription">Choose a rank slot below. Your choice will be locked.</p></div><div class="game-tip">⚡ <span>Think carefully — once placed, a rank cannot be changed.</span></div></div>
+        <div class="slots-panel"><div class="slots-heading"><div><span class="eyebrow">YOUR RANKING BOARD</span><h3>Lock your position</h3></div><span class="slot-count" id="slotCount">0 / 10</span></div><div class="rank-slots" id="rankSlots"></div></div>
+      </div>
+      <div class="game-footer"><span>BLIND RANK <i>•</i> TRUST YOUR TASTE</span><span>NO UNDO <i>•</i> NO SPOILERS</span></div>
+    </section>
+
+    <section class="view section-wrap results-view" id="resultsView">
+      <div class="result-banner"><div class="eyebrow">ROUND COMPLETE</div><h2>That's your <span class="accent">ranking.</span></h2><p>Your Tamil cinema taste, revealed.</p><div class="result-score"><b id="resultScore">—</b><span>COMMUNITY ALIGNMENT<br><small>Demo score until community data is connected</small></span></div></div>
+      <div class="results-columns"><div><div class="section-mini"><span>01 / YOUR FINAL LIST</span><h3>Your ranking</h3></div><div id="resultList" class="result-list"></div></div><aside class="result-side"><div class="side-card"><span class="eyebrow">ROUND SUMMARY</span><div class="summary-number">10<span>/10</span></div><p>Items ranked. Every slot locked.</p><button class="btn btn-primary full" id="playAgain">↻ Play this challenge again</button><button class="btn btn-ghost full" data-categories>Explore categories</button></div><div class="side-card share-card"><span class="eyebrow">SHOW YOUR TASTE</span><h3>Challenge your friends.</h3><p>Copy your result summary and share your ranking.</p><button class="btn btn-ghost full" id="shareResults">Copy result summary</button></div></aside></div>
+    </section>
+
+    <section class="view section-wrap" id="leaderboardView">
+      <div class="section-head"><div><div class="eyebrow">THE FAN RANKINGS</div><h2>Community <span class="accent">board.</span></h2><p>Local demo leaderboard — real community rankings need a shared backend.</p></div></div>
+      <div class="leaderboard-card"><div class="leader-row leader-header"><span>RANK</span><span>PLAYER</span><span>ROUNDS</span><span>BEST SCORE</span></div><div id="leaderRows"></div></div>
+    </section>
+
+    <section class="view section-wrap" id="adminView">
+      <div class="section-head"><div><div class="eyebrow">CONTENT CONTROL</div><h2>Admin <span class="accent">studio.</span></h2><p>Manage the local demo catalogue. Production admin authentication is not configured.</p></div></div>
+      <div class="admin-layout"><form id="itemForm" class="admin-form"><h3>Add a cinema item</h3><label>Category<select id="adminCategory"></select></label><label>Item name<input id="adminName" required placeholder="e.g. Film / artist / scene name"></label><label>Year<input id="adminYear" type="number" min="1900" max="2100" placeholder="Year (optional)"></label><label>Description<input id="adminDescription" placeholder="Short description"></label><button class="btn btn-primary" type="submit">＋ Add item</button></form><div class="admin-data"><div class="admin-data-head"><h3>Import catalogue CSV</h3><button class="btn btn-ghost" id="downloadCsv">Download CSV template</button></div><p>CSV columns: category,name,year,description. Import adds items to this browser's local catalogue.</p><input type="file" id="csvInput" accept=".csv,text/csv"><div id="adminMessage" class="admin-message"></div><h3 class="existing-title">Recently added</h3><div id="adminItems"></div></div></div>
+    </section>
+
+    <section class="view section-wrap" id="profileView"><div class="section-head"><div><div class="eyebrow">YOUR CINEMA JOURNEY</div><h2>Player <span class="accent">profile.</span></h2><p>Game history stored on this device.</p></div></div><div class="profile-card"><div class="avatar big">G</div><div><h3 id="profileName">Guest Player</h3><p id="profileStats">No rounds played yet.</p></div></div><div id="historyList" class="history-list"></div></section>
+  </main>
+
+  <footer class="footer"><a class="brand" href="#" data-home><span class="brand-mark">BR</span><span>BLIND<span class="accent">RANK</span><small>TAMIL CINEMA EDITION</small></span></a><p>உன் Ranking... உன் Choice!</p><div class="footer-links"><button data-admin>Admin</button><button data-profile>Player profile</button></div><small>© 2026 BLIND RANK. An independent fan-made game concept.</small></footer>
+
+  <div class="modal-backdrop" id="modal"><div class="modal"><button class="modal-close" id="modalClose">×</button><div class="eyebrow">HOW TO PLAY</div><h2>One reveal. <span class="accent">One decision.</span></h2><ol><li>Choose a Tamil cinema category and challenge.</li><li>One mystery item is revealed at a time.</li><li>Place it into one of the ten ranking slots.</li><li>That position locks. No moving it later.</li><li>Rank all ten items, then reveal your final list.</li></ol><button class="btn btn-primary full" id="modalStart">Got it — let's play</button></div></div>
+  <div class="toast" id="toast"></div>
+  <script src="js/data.js"></script><script src="js/expanded-data.js"></script><script src="js/people-data.js"></script><script src="js/app.js"></script>
+</body></html>
